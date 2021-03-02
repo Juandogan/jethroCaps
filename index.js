@@ -7,7 +7,9 @@ const path = require ('path')
 const bodyParser = require ('body-parser');
 const multipart = require ('connect-multiparty');
 var geoip = require('geoip-lite');
-
+//https
+const fs = require('fs');
+const https = require('https');
 
 
 
@@ -15,8 +17,7 @@ const { mongoose } = require('./database'); //mongodb
 
 const configMensaje = require('./configMensaje');
 
-//var fs = require('fs');
-//var https = require('https');
+
 
 const multiPartMiddleware = multipart({
     uploadDir: './subidas'
@@ -110,8 +111,25 @@ app.use('/modulocompras/mediosdepago',require('./routes/mercadopago.routes'));
 app.use('/pais', require('./routes/pais.routes'));
 
 app.get('*', function(req, res, next){res.sendFile(path.resolve('client/index.html'));}) 
+
+
+
+
+
+
 // Starting server  
-app.listen(app.get('port'), () => {console.log("Puerto escuchando en puerto: ", app.get('port'))});    
+
+const PUERTO = 3000 ;
+
+// Starting server  
+https.createServer({
+    cert: fs.readFileSync('jethrocaps.com.crt'),
+    key: fs.readFileSync('jethrocaps.com.key')
+  },app).listen(PUERTO, function(){
+     console.log('Servidor https corrindo e');
+ });
+
+//app.listen(app.get('port'), () => {console.log("Puerto escuchando en puerto: ", app.get('port'))});    
        
 
              
