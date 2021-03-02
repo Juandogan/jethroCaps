@@ -76,7 +76,7 @@ app.set('port', process.env.PORT || 3000);  // tomo app e nsu propiedad .set  //
 // Midlewares
 app.use(morgan('dev')); // morgan es una funcion, la pegamos en la propiedad use de app. y pasamos el parametro dev que indica que mostrara el mensaje por consola de desarrollo. 
 app.use(express.json()); // habilita para que el servidor entienda formato json, es una propiedad de la dependencia Express.npom
-app.use(cors('http://66.97.34.215:4200'));
+app.use(cors('https://66.97.34.215:4200'));
 //app.use(body_parser.urlencoded({extended:true}));
 //app.use(cors({origin:'http://localhost:4200'}));
 //app.use(cors({origin:'http://167.99.0.153:4200'}));
