@@ -79,9 +79,9 @@ productosCtrl.nuevoPago = async (req,res) => {
   let preference = { 
 
     back_urls: {
-        success: "http://192.168.43.55:4200/mercadopagofin/",
-        failure: "http://192.168.43.55:4200/mercadopagofin/",
-        pending: "http://192.168.43.55:4200/mercadopagofin/"
+        success: "https://www.jethrocaps.com/mercadopagofin/",
+        failure: "https://www.jethrocaps.com/mercadopagofin/",
+        pending: "https://www.jethrocaps.com/mercadopagofin/"
     },
     auto_return: "approved",
       
